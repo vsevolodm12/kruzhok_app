@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  body {
+    @apply m-0 p-0 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  /* Улучшенная прокрутка для iOS */
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  /* Скрыть скроллбары но оставить функциональность */
+  ::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  .card {
+    @apply bg-surface-light dark:bg-surface-dark rounded-2xl transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-primary {
+    @apply bg-primary-light dark:bg-primary-dark text-white font-medium py-3 px-6 rounded-xl 
+           transition-all duration-200 hover:opacity-90 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-surfaceSecondary-light dark:bg-surfaceSecondary-dark 
+           text-text-primary-light dark:text-text-primary-dark font-medium py-3 px-6 rounded-xl 
+           transition-all duration-200 hover:opacity-90 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply text-primary-light dark:text-primary-dark font-medium py-3 px-6 rounded-xl 
+           transition-all duration-200 hover:bg-surfaceSecondary-light dark:hover:bg-surfaceSecondary-dark active:scale-95;
+  }
+
+  .text-primary {
+    @apply text-text-primary-light dark:text-text-primary-dark;
+  }
+
+  .text-secondary {
+    @apply text-text-secondary-light dark:text-text-secondary-dark;
+  }
+
+  .page-container {
+    @apply min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-200;
+  }
+
+  .content-wrapper {
+    @apply max-w-2xl mx-auto px-4 py-6 pb-24;
+  }
+
+  /* Mobile 9/16 optimization */
+  @media (max-width: 640px) {
+    .content-wrapper {
+      @apply px-4 py-4 pb-20;
+      min-height: calc(var(--vh, 1vh) * 100);
+    }
+    
+    .card {
+      @apply rounded-xl;
+    }
+  }
+
+  /* Desktop-specific styles */
+  .desktop-layout {
+    @apply lg:flex lg:min-h-screen;
+  }
+
+  .desktop-sidebar {
+    @apply lg:fixed lg:h-screen lg:border-r lg:border-gray-200 dark:lg:border-gray-800;
+  }
+
+  .desktop-content {
+    @apply lg:flex-1;
+    transition: margin-left 0.3s ease-in-out;
+  }
+
+  .desktop-wrapper {
+    @apply lg:max-w-content lg:mx-auto lg:px-8 lg:py-8;
+  }
+
+  /* Mobile-specific styles */
+  .mobile-layout {
+    @apply max-w-2xl mx-auto;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-3 bg-surface-light dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 
+           rounded-xl text-primary placeholder:text-secondary 
+           focus:outline-none focus:border-primary-light dark:focus:border-primary-dark 
+           transition-colors duration-200;
+  }
+
+  .textarea {
+    @apply w-full px-4 py-3 bg-surface-light dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 
+           rounded-xl text-primary placeholder:text-secondary resize-none
+           focus:outline-none focus:border-primary-light dark:focus:border-primary-dark 
+           transition-colors duration-200;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply px-3 py-1 rounded-lg text-xs font-medium inline-flex items-center gap-1;
+  }
+
+  .badge-success {
+    @apply bg-success-light/10 dark:bg-success-dark/10 text-success-light dark:text-success-dark;
+  }
+
+  .badge-warning {
+    @apply bg-warning-light/10 dark:bg-warning-dark/10 text-warning-light dark:text-warning-dark;
+  }
+
+  .badge-error {
+    @apply bg-error-light/10 dark:bg-error-dark/10 text-error-light dark:text-error-dark;
+  }
+
+  .badge-primary {
+    @apply bg-primary-light/10 dark:bg-primary-dark/10 text-primary-light dark:text-primary-dark;
+  }
+}
