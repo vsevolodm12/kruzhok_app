@@ -11,6 +11,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: 'terser',
+    minify: 'esbuild',
   },
+  base: './',
+  publicDir: 'public',
 })

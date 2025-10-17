@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, Edit2, Trash2, Plus, Save, X, Users, BookMarked, Video, FileText } from 'lucide-react';
+import { Calendar, Clock, Edit2, Trash2, Plus, Save, Users, Video, FileText } from 'lucide-react';
 import Card from './Card';
 import Button from './Button';
 
