@@ -29,6 +29,11 @@
     width: 0;
     background: transparent;
   }
+
+  /* Safe area для мобильных устройств */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
 @layer utilities {
@@ -64,24 +69,31 @@
     @apply text-text-secondary-light dark:text-text-secondary-dark;
   }
 
-  .page-container {
-    @apply min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-200;
+  /* Mobile-first responsive spacing */
+  .mobile-spacing {
+    @apply space-y-4 lg:space-y-6;
   }
 
-  .content-wrapper {
-    @apply max-w-2xl mx-auto px-4 py-6 pb-24;
+  .mobile-padding {
+    @apply px-4 py-4 lg:px-6 lg:py-6;
   }
 
-  /* Mobile 9/16 optimization */
-  @media (max-width: 640px) {
-    .content-wrapper {
-      @apply px-4 py-4 pb-20;
-      min-height: calc(var(--vh, 1vh) * 100);
-    }
-    
-    .card {
-      @apply rounded-xl;
-    }
+  /* Mobile-optimized grid */
+  .mobile-grid {
+    @apply grid gap-4 lg:grid-cols-2;
+  }
+
+  /* Mobile-optimized text sizes */
+  .mobile-text-lg {
+    @apply text-lg lg:text-xl;
+  }
+
+  .mobile-text-xl {
+    @apply text-xl lg:text-2xl;
+  }
+
+  .mobile-text-2xl {
+    @apply text-2xl lg:text-4xl;
   }
 
   /* Desktop-specific styles */
@@ -100,11 +112,6 @@
 
   .desktop-wrapper {
     @apply lg:max-w-content lg:mx-auto lg:px-8 lg:py-8;
-  }
-
-  /* Mobile-specific styles */
-  .mobile-layout {
-    @apply max-w-2xl mx-auto;
   }
 
   /* Input styles */
@@ -141,5 +148,22 @@
 
   .badge-primary {
     @apply bg-primary-light/10 dark:bg-primary-dark/10 text-primary-light dark:text-primary-dark;
+  }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 640px) {
+    .card {
+      @apply rounded-xl;
+    }
+    
+    /* Уменьшенные отступы для мобильных */
+    .mobile-compact {
+      @apply px-3 py-3;
+    }
+    
+    /* Оптимизация для маленьких экранов */
+    .mobile-text-sm {
+      @apply text-xs;
+    }
   }
 }

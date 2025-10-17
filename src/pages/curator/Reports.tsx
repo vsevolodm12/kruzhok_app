@@ -2,7 +2,6 @@ import React from 'react';
 import { BarChart3, TrendingUp, Users, Award, Target } from 'lucide-react';
 import Card from '../../components/Card';
 import ProgressBar from '../../components/ProgressBar';
-import { useViewMode } from '../../contexts/ViewModeContext';
 
 interface StudentProgress {
   id: number;
@@ -13,7 +12,6 @@ interface StudentProgress {
 }
 
 const Reports: React.FC = () => {
-  const { isDesktop } = useViewMode();
 
   const groupStats = {
     totalStudents: 15,
@@ -91,7 +89,7 @@ const Reports: React.FC = () => {
       </div>
 
       {/* Общая статистика */}
-      <div className={`grid gap-4 ${isDesktop ? 'grid-cols-4' : 'grid-cols-2'}`}>
+      <div className='grid gap-4 grid-cols-2 lg:grid-cols-4'>
         <Card>
           <div className="text-center">
             <div className="w-12 h-12 bg-primary-light/10 dark:bg-primary-dark/10 rounded-xl flex items-center justify-center mx-auto mb-2">
@@ -193,7 +191,7 @@ const Reports: React.FC = () => {
                 </div>
               </div>
 
-              <div className={`grid gap-3 ${isDesktop ? 'grid-cols-3' : 'grid-cols-3'}`}>
+              <div className='grid gap-3 grid-cols-1 lg:grid-cols-3'>
                 <div className="text-center p-2 bg-surface-light dark:bg-surface-dark rounded-lg">
                   <p className="text-xs text-secondary mb-1">Посещ.</p>
                   <p className="text-sm font-bold text-primary">{student.attendance}%</p>

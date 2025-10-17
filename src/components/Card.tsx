@@ -12,8 +12,8 @@ const Card: React.FC<CardProps> = ({ children, className = '', onClick, hover = 
   return (
     <div
       onClick={onClick}
-      className={`card p-5 shadow-card-light dark:shadow-card-dark ${
-        hover ? 'card-hover cursor-pointer' : ''
+      className={`bg-surface-light dark:bg-surface-dark rounded-2xl border border-gray-200 dark:border-gray-800 p-4 lg:p-6 shadow-sm hover:shadow-md transition-all duration-200 ${
+        hover ? 'cursor-pointer hover:scale-[1.02]' : ''
       } ${className}`}
     >
       {children}

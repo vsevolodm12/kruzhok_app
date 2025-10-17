@@ -25,16 +25,16 @@ const Button: React.FC<ButtonProps> = ({
   const baseClasses = 'font-medium rounded-xl transition-all duration-200 flex items-center justify-center gap-2';
   
   const variantClasses = {
-    primary: 'bg-primary-light dark:bg-primary-dark text-white hover:opacity-90 active:scale-95',
-    secondary: 'bg-surfaceSecondary-light dark:bg-surfaceSecondary-dark text-primary hover:opacity-90 active:scale-95',
-    danger: 'bg-red-500 dark:bg-red-600 text-white hover:opacity-90 active:scale-95',
+    primary: 'bg-primary-light dark:bg-primary-dark text-white hover:opacity-90 active:scale-95 shadow-sm',
+    secondary: 'bg-surfaceSecondary-light dark:bg-surfaceSecondary-dark text-primary hover:opacity-90 active:scale-95 shadow-sm',
+    danger: 'bg-red-500 dark:bg-red-600 text-white hover:opacity-90 active:scale-95 shadow-sm',
     ghost: 'text-primary hover:bg-surfaceSecondary-light dark:hover:bg-surfaceSecondary-dark active:scale-95',
   };
 
   const sizeClasses = {
-    small: 'py-2 px-4 text-sm',
-    medium: 'py-3 px-6 text-base',
-    large: 'py-4 px-8 text-lg',
+    small: 'py-2 px-3 text-sm min-h-[36px]',
+    medium: 'py-3 px-4 text-base min-h-[44px]',
+    large: 'py-4 px-6 text-lg min-h-[52px]',
   };
 
   const widthClass = fullWidth ? 'w-full' : '';
@@ -50,8 +50,8 @@ const Button: React.FC<ButtonProps> = ({
         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
       ) : (
         <>
-          {Icon && <Icon className="w-5 h-5" />}
-          {children}
+          {Icon && <Icon className="w-5 h-5 flex-shrink-0" />}
+          <span className="truncate">{children}</span>
         </>
       )}
     </button>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BookOpen, Plus, Edit, Trash2, Users, ChevronDown, ChevronUp, CheckCircle, XCircle, X } from 'lucide-react';
 import Card from '../../components/Card';
-import { useViewMode } from '../../contexts/ViewModeContext';
 
 interface Student {
   id: number;
@@ -22,7 +21,6 @@ interface HomeworkTask {
 }
 
 const CuratorHomework: React.FC = () => {
-  const { isDesktop } = useViewMode();
   const [expandedTasks, setExpandedTasks] = useState<number[]>([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [selectedGroup, setSelectedGroup] = useState('');
@@ -198,7 +196,7 @@ const CuratorHomework: React.FC = () => {
       )}
 
       {/* Список заданий */}
-      <div className={`grid gap-4 ${isDesktop ? 'grid-cols-1' : 'grid-cols-1'}`}>
+      <div className="grid gap-4 grid-cols-1">
         {homeworkTasks.map((task) => (
           <Card key={task.id}>
             <div className="space-y-4">

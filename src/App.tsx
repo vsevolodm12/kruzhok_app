@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { RoleProvider, useRole } from './contexts/RoleContext';
-import { ViewModeProvider } from './contexts/ViewModeContext';
 import { SidebarProvider } from './contexts/SidebarContext';
 import Layout from './components/Layout';
 
@@ -57,15 +56,13 @@ const AppRoutes: React.FC = () => {
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <ViewModeProvider>
-        <RoleProvider>
-          <SidebarProvider>
-            <Router>
-              <AppRoutes />
-            </Router>
-          </SidebarProvider>
-        </RoleProvider>
-      </ViewModeProvider>
+      <RoleProvider>
+        <SidebarProvider>
+          <Router>
+            <AppRoutes />
+          </Router>
+        </SidebarProvider>
+      </RoleProvider>
     </ThemeProvider>
   );
 };

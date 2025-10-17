@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, Video, Clock, FileText, PlayCircle } from 'lucide-react';
 import Card from '../../components/Card';
-import { useViewMode } from '../../contexts/ViewModeContext';
 
 interface Lesson {
   id: number;
@@ -27,7 +26,7 @@ interface Course {
 }
 
 const Schedule: React.FC = () => {
-  const { isDesktop } = useViewMode();
+  
   const [selectedCourse, setSelectedCourse] = useState('history');
 
   const courses: Course[] = [
@@ -135,7 +134,7 @@ const Schedule: React.FC = () => {
       </div>
 
       {/* Course Tabs */}
-      <div className={`flex gap-3 ${isDesktop ? 'flex-wrap' : 'overflow-x-auto pb-2 -mx-4 px-4'}`}>
+      <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 lg:flex-wrap lg:overflow-visible lg:pb-0 lg:mx-0 lg:px-0">
         {courses.map((course) => (
           <button
             key={course.id}
@@ -159,7 +158,7 @@ const Schedule: React.FC = () => {
       </div>
 
       {/* Lessons Grid */}
-      <div className={`grid gap-4 ${isDesktop ? 'grid-cols-2' : 'grid-cols-1'}`}>
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
         {currentCourse.lessons.map((lesson) => (
           <Card 
             key={lesson.id} 

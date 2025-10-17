@@ -2,7 +2,6 @@ import React from 'react';
 import { TrendingUp, Award, Target, BarChart } from 'lucide-react';
 import Card from '../../components/Card';
 import ProgressBar from '../../components/ProgressBar';
-import { useViewMode } from '../../contexts/ViewModeContext';
 
 interface GradeHistory {
   id: number;
@@ -12,7 +11,7 @@ interface GradeHistory {
 }
 
 const Progress: React.FC = () => {
-  const { isDesktop } = useViewMode();
+  
   
   const attendance = 92;
   const homeworkCompletion = 78;
@@ -54,7 +53,7 @@ const Progress: React.FC = () => {
       </div>
 
       {/* Статистика */}
-      <div className={`grid gap-4 ${isDesktop ? 'grid-cols-3' : 'grid-cols-3'}`}>
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-3">
         {stats.map((stat, index) => (
           <Card key={index}>
             <div className="text-center">

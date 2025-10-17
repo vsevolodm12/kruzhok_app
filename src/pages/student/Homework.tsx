@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { BookOpen, Download, Upload, CheckCircle, Clock, AlertCircle, FileText, X } from 'lucide-react';
 import Card from '../../components/Card';
 import StatusBadge from '../../components/StatusBadge';
-import { useViewMode } from '../../contexts/ViewModeContext';
 
 interface HomeworkItem {
   id: number;
@@ -19,7 +18,6 @@ interface HomeworkItem {
 }
 
 const Homework: React.FC = () => {
-  const { isDesktop } = useViewMode();
   const [uploadingFile, setUploadingFile] = useState<File | null>(null);
   const [showUploadModal, setShowUploadModal] = useState<number | null>(null);
 
@@ -110,7 +108,7 @@ const Homework: React.FC = () => {
       </div>
 
       {/* Stats */}
-      <div className={`grid gap-4 ${isDesktop ? 'grid-cols-3' : 'grid-cols-3'}`}>
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-3">
         <Card>
           <div className="text-center">
             <div className="text-2xl lg:text-3xl font-bold text-primary">
@@ -137,7 +135,7 @@ const Homework: React.FC = () => {
         </Card>
       </div>
 
-      <div className={`grid gap-4 ${isDesktop ? 'grid-cols-1' : 'grid-cols-1'}`}>
+      <div className="grid gap-4 grid-cols-1">
         {homeworks.map((homework) => (
           <Card key={homework.id}>
             <div className="space-y-4">

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { CheckSquare, Download, Check, Upload, FileText, X } from 'lucide-react';
 import Card from '../../components/Card';
 import StatusBadge from '../../components/StatusBadge';
-import { useViewMode } from '../../contexts/ViewModeContext';
 
 interface Submission {
   id: number;
@@ -17,7 +16,7 @@ interface Submission {
 }
 
 const Submissions: React.FC = () => {
-  const { isDesktop } = useViewMode();
+  
   const [reviewingId, setReviewingId] = useState<number | null>(null);
   const [grade, setGrade] = useState('');
   const [comment, setComment] = useState('');
@@ -114,7 +113,7 @@ const Submissions: React.FC = () => {
       </div>
 
       {/* Статистика */}
-      <div className={`grid gap-4 ${isDesktop ? 'grid-cols-2' : 'grid-cols-2'}`}>
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
         <Card>
           <div className="text-center">
             <div className="w-12 h-12 bg-warning-light/10 dark:bg-warning-dark/10 rounded-xl flex items-center justify-center mx-auto mb-2">
@@ -138,7 +137,7 @@ const Submissions: React.FC = () => {
       </div>
 
       {/* Список работ */}
-      <div className={`grid gap-4 ${isDesktop ? 'grid-cols-1' : 'grid-cols-1'}`}>
+      <div className="grid gap-4 grid-cols-1">
         {submissions.map((submission) => (
           <Card key={submission.id}>
             <div className="space-y-4">
